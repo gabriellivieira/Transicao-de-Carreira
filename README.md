@@ -1,4 +1,4 @@
-# Transição de Carreira / Carrer_Transition
+# Transição de Carreira / Career_Transition
 
 Neste repositório você encontra meus estudos para me tornar uma Analista de Dados e realizar a transição de carreiro no primeiro trimestre de 2024. 
 
@@ -26,6 +26,8 @@ Enjoy to navigator among the content covered in the links below. At the final, I
 ----------------------------------------------------------------
 
 Roadmap de estudos para transição de carreira - Analista de Dados
+
+Study roadmap for career transition - Data Analyst
 
 ![Mind Maps.jpg](https://file.notion.so/f/s/3cb2390d-ebdd-4ed7-87e0-819a3ef6f2c6/Mind_Maps.jpg?id=c1952fa8-cbb9-43e7-bee9-749a4a6741d9&table=block&spaceId=47370e3a-ad05-454d-986b-f9ff4d8322d6&expirationTimestamp=1698350400000&signature=0Ct79X7zbv60KD87vlEi4DBLn6ovE04cTe0W410GcAw&downloadName=Mind+Maps.jpg)
 
