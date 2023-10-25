@@ -1,0 +1,32 @@
+/* COMUNICACAO ENTRE BANCOS UTILIZANDO TRIGGER */
+
+/* A atividade consiste em usar uma trigger para manter os dois bancos sincronizados. 
+ O de cadastro e o de backup.
+*/
+
+CREATE DATABASE LOJA;
+
+USE LOJA;
+
+CREATE TABLE PRODUTO (
+	IDPRODUTO INT PRIMARY KEY AUTO_INCREMENT,
+    NOME VARCHAR(30),
+    VALOR FLOAT(10,2)
+);
+
+CREATE DATABASE BACKUP;
+
+USE BACKUP;
+
+CREATE TABLE BKP_PRODUTO (
+	IDBKP INT PRIMARY KEY AUTO_INCREMENT,
+    IDPRODUTO INT,
+    NOME VARCHAR(30),
+    VALOR FLOAT(10,2)
+);
+
+-- Criando trigger
+
+USE LOJA;
+
+INSERT INTO BACKUP.

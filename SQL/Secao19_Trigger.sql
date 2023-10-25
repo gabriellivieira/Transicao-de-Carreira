@@ -1,0 +1,61 @@
+/* TRIGGER */
+
+-- Cola para criar uma trigger
+CREATE TRIGGER NOME
+BEFORE/AFTER INSERT/DELETE/UPDATE ON TABELA
+FOR EACH ROW (PARA CADA LINHA)
+BEGIN
+	QUALQUER COMANDO SQL 
+END
+
+--/--
+
+CREATE DATABASE AULA40;
+
+USE AULA40;
+
+CREATE TABLE USUARIO(
+	IDUSUARIO INT PRIMARY KEY AUTO_INCREMENT,
+    NOME VARCHAR(30),
+    LOGIN VARCHAR(30),
+    SENHA VARCHAR(30)
+);
+
+-- Intuito dessa tabela é ser um bachup sempre que um usuário por excluido
+-- para o caso de precisar recuperar
+
+CREATE TABLE BKP_USUARIO(
+	IDBACKUP INT PRIMARY KEY AUTO_INCREMENT,
+    ID_USUARIO INT,
+    NOME VARCHAR(30),
+    LOGIN VARCHAR(30)
+);
+
+/* CRIANDO A TRIGGER */
+
+DELIMITER #
+
+CREATE TRIGGER BACKUP_USE
+BEFORE DELETE ON USUARIO 
+FOR EACH ROW
+BEGIN
+	INSERT INTO BKP_USUARIO VALUES
+    (NULL, OLD.IDUSUARIO, OLD.NOME, OLD.LOGIN);
+END
+#
+
+-- Inserts na tabela usuário
+
+INSERT INTO USUARIO VALUES(NULL, 'ANDRE', 'ANDRE2009','HEXACAMPEAO');
+
+SELECT * FROM USUARIO;
+
+DELETE FROM USUARIO WHERE IDUSUARIO = 1;
+
+SELECT * FROM BKP_USUARIO;
+
++----------+------------+-------+-----------+
+| IDBACKUP | ID_USUARIO | NOME  | LOGIN     |
++----------+------------+-------+-----------+
+|        1 |          1 | ANDRE | ANDRE2009 |
++----------+------------+-------+-----------+
