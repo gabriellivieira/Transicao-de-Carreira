@@ -1,0 +1,76 @@
+/* TRABALHANDO COM DATAS */ 
+
+USE EMPRESA
+GO
+
+SELECT * FROM ALUNO
+GO
+
+SELECT NOME, NESCIMENTO
+FROM ALUNO
+GO
+
+/* DATEDIFF - Calcula a diferenca entre duas datas */
+
+-- Trazendo a data e hora atual + nome
+SELECT NOME, GETDATE() AS DATA_HORA
+FROM ALUNO
+GO
+
+-- 1)PASSO: Usando a DATEDIFF
+
+SELECT NOME, DATEDIFF(DAY, NESCIMENTO, GETDATE()) AS "IDADE"
+FROM ALUNO
+GO
+
+-- 2)PASSO: Retorno em inteiro + operação matematica  pra retornar os anos*/ 
+SELECT NOME, (DATEDIFF(DAY, NESCIMENTO, GETDATE())/365) AS "IDADE"
+FROM ALUNO
+GO
+
+
+--Trazendo em meses a operação
+SELECT NOME, (DATEDIFF(MONTH, NESCIMENTO, GETDATE())/12) AS "IDADE"
+FROM ALUNO
+GO
+
+--Trazendo diretamente o ano
+SELECT NOME, DATEDIFF(YEAR, NESCIMENTO, GETDATE()) AS "IDADE"
+FROM ALUNO
+GO
+
+-- DATENAME - Traz o nome de uma parte da data em questão
+-- Tras uma string
+SELECT  NOME, 
+		DATENAME(MONTH,NESCIMENTO) AS MÊS
+FROM ALUNO
+GO
+
+
+SELECT  NOME, 
+		DATENAME(YEAR,NESCIMENTO) AS ANO
+FROM ALUNO
+GO
+
+SELECT  NOME, 
+		DATENAME(WEEKDAY,NESCIMENTO) AS DIA_SEMANA
+FROM ALUNO
+GO
+
+-- DATEPART - Traz o nome de uma parte da data data
+-- Traz em inteiro - podendo ser feito calculos 
+
+SELECT NOME,
+		DATEPART(MONTH, NESCIMENTO) AS "MES_NUM",
+		DATENAME(MONTH, NESCIMENTO) AS "MES_NOME"
+FROM ALUNO
+GO
+
+-- DATEADD - Retorna uma Data somando a outra data 
+-- Util para calcular vencimentos
+
+SELECT DATEADD(DAY, 365, GETDATE())
+GO
+
+SELECT DATEADD(YEAR, 10, GETDATE())
+GO
